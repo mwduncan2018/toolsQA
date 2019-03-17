@@ -11,13 +11,13 @@ import org.openqa.selenium.ie.InternetExplorerDriverService;
 public class SeleniumDemo {
 
 	public enum BROWSER {
-		CHROME, FIREFOX, IE64, IE32, IE64_SERVICE_BUILDER
+		CHROME, FIREFOX, IE32, IE32_SERVICE_BUILDER, IE64, IE64_SERVICE_BUILDER
 	}
 
 	private static WebDriver driver;
 
 	public static void main(String[] args) {
-		driver = driverFor(BROWSER.IE32);
+		driver = driverFor(BROWSER.IE64_SERVICE_BUILDER);
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://www.google.com");
@@ -45,7 +45,7 @@ public class SeleniumDemo {
 					"C:\\dev\\tools\\ie_driver_64\\IEDriverServer_x64_3.9.0\\IEDriverServer.exe");
 			return new InternetExplorerDriver();
 		}
-		// IE65_SERVICE_BUILDER
+		// IE64_SERVICE_BUILDER
 		else if (browser.equals(BROWSER.IE64_SERVICE_BUILDER)) {
 			String exePath = "C:\\dev\\tools\\ie_driver_64\\IEDriverServer_x64_3.9.0\\IEDriverServer.exe";
 			InternetExplorerDriverService.Builder serviceBuilder = new InternetExplorerDriverService.Builder();
@@ -63,11 +63,24 @@ public class SeleniumDemo {
 		else if (browser.equals(BROWSER.IE32)) {
 			System.setProperty("webdriver.ie.driver",
 					"C:\\dev\\tools\\ie_driver_32\\IEDriverServer_Win32_3.9.0\\IEDriverServer.exe");
-			return new InternetExplorerDriver();			
+			return new InternetExplorerDriver();
 		}
-		else {
+		// IE32_SERVICE_BUILDER
+		else if (browser.equals(BROWSER.IE32_SERVICE_BUILDER)) {
+			String exePath = "C:\\dev\\tools\\ie_driver_32\\IEDriverServer_Win32_3.9.0\\IEDriverServer.exe";
+			InternetExplorerDriverService.Builder serviceBuilder = new InternetExplorerDriverService.Builder();
+			serviceBuilder.usingAnyFreePort(); // This specifies that sever can pick any available free port to start
+			serviceBuilder.usingDriverExecutable(new File(exePath)); // Tell it where you server exe is
+			serviceBuilder.withLogLevel(InternetExplorerDriverLogLevel.TRACE); // Specifies the log level of the server
+			serviceBuilder.withLogFile(new File("C:\\Users\\abc\\Documents\\logFile.txt")); // Specify the log file.
+																							// Change it based on your
+																							// system
+			InternetExplorerDriverService service = serviceBuilder.build(); // Create a driver service and pass it to
+																			// Internet explorer driver instance
+			return new InternetExplorerDriver(service);
+		} else {
 			return null;
 		}
 	}
-	
+
 }
