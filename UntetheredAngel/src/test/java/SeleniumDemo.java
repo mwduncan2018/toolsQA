@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,11 +17,17 @@ public class SeleniumDemo {
 
 	private static WebDriver driver;
 
-	public static void main(String[] args) {
-		driver = driverFor(BROWSER.IE64_SERVICE_BUILDER);
+	public static void main(String[] args) throws InterruptedException {
+		driver = driverFor(BROWSER.IE32);
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get("http://www.google.com");
+		driver.get("http://localhost:54070/Alpha/PageOne");
+		System.out.println("Maximizing the window.");
+		driver.manage().window().maximize();
+		System.out.println("Current URL: " + driver.getCurrentUrl());
+		System.out.println("Title: " + driver.findElement(By.id("pageTitle")).getText());
+		
+		TimeUnit.SECONDS.sleep(2);
 		driver.quit();
 
 		System.out.println("DONE");
