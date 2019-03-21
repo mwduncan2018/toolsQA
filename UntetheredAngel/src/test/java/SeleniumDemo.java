@@ -28,10 +28,16 @@ public class SeleniumDemo {
 		driver.manage().window().maximize();
 		System.out.println("Current URL: " + driver.getCurrentUrl());
 		System.out.println("Title: " + driver.findElement(By.id("pageTitle")).getText());
+
 		System.out.println("--- Guitar Manufacturers ---");
-		driver.findElements(By.cssSelector("#guitarManufacturersList > li")).forEach(x -> System.out.println(x.getText()));
+		driver.findElements(By.cssSelector("#guitarManufacturersList > li"))
+				.forEach(x -> System.out.println(x.getText()));
+
 		System.out.println("--- Amp Manufacturers ---");
 		driver.findElements(By.cssSelector("#ampManufacturersList > li")).forEach(y -> System.out.println(y.getText()));
+
+		System.out.println("--- Footer ---");
+		System.out.println(driver.findElement(By.cssSelector("footer > p")).getText());
 
 		TimeUnit.SECONDS.sleep(2);
 		driver.quit();
