@@ -36,6 +36,7 @@ public class SeleniumDemo {
 		System.out.println("--- Amp Manufacturers ---");
 		driver.findElements(By.cssSelector("#ampManufacturersList > li")).forEach(y -> System.out.println(y.getText()));
 
+		System.outprintln();
 		System.out.println("--- Footer ---");
 		System.out.println(driver.findElement(By.cssSelector("footer > p")).getText());
 
