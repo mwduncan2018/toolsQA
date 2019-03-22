@@ -29,21 +29,39 @@ public class SeleniumDemo {
 		System.out.println("Current URL: " + driver.getCurrentUrl());
 		System.out.println("Title: " + driver.findElement(By.id("pageTitle")).getText());
 
+		System.out.println("... Reset Data ...");
+		driver.findElement(By.cssSelector(".form-group > .col-md-offset-2 > input")).click();
+
+		driver.findElement(By.linkText("Page Two")).click();
+		driver.findElement(By.id("FirstName")).sendKeys("Travis");
+		driver.findElement(By.id("LastName")).sendKeys("Duncan");
+		driver.findElement(By.id("Age")).sendKeys("36");
+		driver.findElement(By.id("Job")).sendKeys("Help Desk");
+		driver.findElement(By.id("Salary")).sendKeys("28000");
+		driver.findElement(By.cssSelector(".form-group > .col-md-offset-2 > input")).click();
+
+		List<WebElement> customerList = driver.findElements(By.cssSelector("#customerList > li"));
+		customerList.stream().forEach(x -> System.out.println(x.getText()));
+
+		TimeUnit.SECONDS.sleep(1);
+		driver.quit();
+
+		System.out.println("\n\nDONE");
+	}
+
+	public static void stuff() {
 		System.out.println("--- Guitar Manufacturers ---");
 		driver.findElements(By.cssSelector("#guitarManufacturersList > li"))
 				.forEach(x -> System.out.println(x.getText()));
 
+		System.out.println();
 		System.out.println("--- Amp Manufacturers ---");
 		driver.findElements(By.cssSelector("#ampManufacturersList > li")).forEach(y -> System.out.println(y.getText()));
 
-		System.outprintln();
+		System.out.println();
 		System.out.println("--- Footer ---");
 		System.out.println(driver.findElement(By.cssSelector("footer > p")).getText());
 
-		TimeUnit.SECONDS.sleep(2);
-		driver.quit();
-
-		System.out.println("\n\nDONE");
 	}
 
 	private static WebDriver driverFor(BROWSER browser) {
