@@ -28,8 +28,6 @@ public class SeleniumDemo {
 		driver.manage().window().maximize();
 		System.out.println("Current URL: " + driver.getCurrentUrl());
 		System.out.println("Title: " + driver.findElement(By.id("pageTitle")).getText());
-
-		System.out.println("... Reset Data ...");
 		driver.findElement(By.cssSelector(".form-group > .col-md-offset-2 > input")).click();
 
 		driver.findElement(By.linkText("Page Two")).click();
