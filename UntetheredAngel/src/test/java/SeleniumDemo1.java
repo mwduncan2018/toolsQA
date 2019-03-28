@@ -10,7 +10,7 @@ public class SeleniumDemo1 {
 	private static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
-		driver = DriverFactory.driverFor(DriverFactory.BROWSER.IE32);
+		driver = DriverFactory.driverFor(DriverFactory.BROWSER.CHROME);
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://localhost:54070/Alpha/PageOne");
@@ -51,7 +51,5 @@ public class SeleniumDemo1 {
 
 		System.out.println("\n\nDONE");
 	}
-
-
 
 }
