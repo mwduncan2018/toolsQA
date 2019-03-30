@@ -23,13 +23,18 @@
 			<artifactId>selenium-server</artifactId>
 			<version>3.141.59</version>
 		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>3.141.59</version>
+		</dependency>
 	</dependencies>
 
 	<!-- GECKO DRIVER -->
 	<!-- C:\dev\tools\gecko_driver\geckodriver-v0.24.0-win64\geckodriver.exe -->
 	<!-- Option 1 (add to path) -->
 	<!-- Add that to the PATH in WINDOWS ENVIRONMENT VARIABLES -->
-	<!-- Option 2 (add in Java code)-->
+	<!-- Option 2 (add in Java code) -->
 	<!-- System.setProperty("webdriver.gecko.driver", "C:\\dev\\tools\\gecko_driver\\geckodriver-v0.24.0-win64\\geckodriver.exe"); -->
 
 </project>

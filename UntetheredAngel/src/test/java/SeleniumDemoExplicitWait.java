@@ -32,7 +32,7 @@ public class SeleniumDemoExplicitWait {
 		System.out.println("y2 = " + y2.getText());
 		
 		System.out.println();
-		TimeUnit.SECONDS.sleep(1);
+		TimeUnit.SECONDS.sleep(2);
 		driver.quit();
 
 		System.out.println("\n\nDONE");
