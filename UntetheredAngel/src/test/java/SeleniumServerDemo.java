@@ -8,6 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+
+/*
+ * This does not work.
+ * Look into this later if it is used on the job.
+ * 
+ */
 public class SeleniumServerDemo {
 	private static WebDriver driver;
 
