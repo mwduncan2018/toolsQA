@@ -1,12 +1,14 @@
+package com.untetheredangel;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
-public class SeleniumDemoDropDown {
+public class SeleniumDemoRadioButtons {
+
 	private static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -20,11 +22,20 @@ public class SeleniumDemoDropDown {
 		System.out.println("Title: " + driver.findElement(By.id("pageTitle")).getText());
 		driver.findElement(By.cssSelector("#btnReset")).click();
 
-		// For drop downs, use the Select class.
-		// The Select class wraps around the WebElement class.
-		WebElement selectElement = driver.findElement(By.id("dropDownDemo"));
-		Select select = new Select(selectElement);
-		select.selectByVisibleText("Maybe");
+		List<WebElement> radioButtons = driver.findElements(By.name("superRadio"));
+		radioButtons.forEach(z -> {
+			try {
+				TimeUnit.MILLISECONDS.sleep(500);
+				z.click();
+				TimeUnit.MILLISECONDS.sleep(500);
+				driver.findElement(By.cssSelector("#btnSelectSong")).click();
+				TimeUnit.MILLISECONDS.sleep(500);
+				Alert alert = driver.switchTo().alert();
+				alert.accept();				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		});
 
 		TimeUnit.SECONDS.sleep(1);
 		driver.quit();

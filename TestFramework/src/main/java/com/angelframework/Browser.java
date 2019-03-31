@@ -1,5 +1,11 @@
 package com.angelframework;
 
-public class Browser {
+import org.openqa.selenium.WebDriver;
 
+public class Browser {
+	static WebDriver driver = DriverFactory
+	
+	
+	
+	
 }

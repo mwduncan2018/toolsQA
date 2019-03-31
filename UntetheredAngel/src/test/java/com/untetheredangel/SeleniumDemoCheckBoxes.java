@@ -1,24 +1,17 @@
-import java.net.MalformedURLException;
-import java.net.URL;
+package com.untetheredangel;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-
-/*
- * This does not work.
- * Look into this later if it is used on the job.
- * 
- */
-public class SeleniumServerDemo {
+public class SeleniumDemoCheckBoxes {
 	private static WebDriver driver;
 
-	public static void main(String[] args) throws Exception {
-		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), new ChromeOptions());
+	public static void main(String[] args) throws InterruptedException {
+		driver = DriverFactory.driverFor(DriverFactory.BROWSER.CHROME);
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://localhost:54070/Alpha/PageOne");
@@ -44,11 +37,10 @@ public class SeleniumServerDemo {
 		driver.switchTo().alert().accept();
 		TimeUnit.MILLISECONDS.sleep(400);
 		driver.switchTo().alert().accept();
-
+		
 		TimeUnit.SECONDS.sleep(1);
 		driver.quit();
 
 		System.out.println("\n\nDONE");
 	}
-
 }
