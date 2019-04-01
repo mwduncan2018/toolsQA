@@ -6,4 +6,8 @@ public class Pages {
 		return new PageOne();
 	}
 
+	public static PageTwo pageTwo() {
+		return new PageTwo();
+	}
+
 }
