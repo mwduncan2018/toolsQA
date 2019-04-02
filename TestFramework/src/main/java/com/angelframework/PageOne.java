@@ -12,19 +12,16 @@ public class PageOne {
 	static String url = "http://localhost:54070/Alpha/PageOne";
 	static String title = "Page One - My ASP.NET Application";
 	
-	@FindBy(linkText = "Page Two")
-	WebElement pageTwoLink;
+	public WebElement x;
 
 	public void goTo() {
 		Browser.goTo(url);
 	}
 
 	public void clickPageTwoLink() {
-		//Browser.driver.findElement(By.linkText("Page Two")).click();
-		pageTwoLink.click();
+		Browser.driver.findElement(By.linkText("Page Two")).click();
 	}
 
-	
 	public Boolean isAt() {
 		return Browser.title().equals(title);
 	}
