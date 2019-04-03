@@ -15,8 +15,8 @@ public class LoginPage {
 	}
 
 	public static class LoginCommand {
-		private static String commandUsername;
-		private static String commandPassword;
+		private static String commandUsername = "";
+		private static String commandPassword = "";
 
 		public LoginCommand(String username) {
 			commandUsername = username;
@@ -31,6 +31,8 @@ public class LoginPage {
 			Driver.instance.findElement(By.id("Username")).sendKeys(commandUsername);
 			Driver.instance.findElement(By.id("Password")).sendKeys(commandPassword);
 			Driver.instance.findElement(By.id("btnLogin")).click();
+			commandUsername = "";
+			commandPassword = "";
 		}
 	}
 
