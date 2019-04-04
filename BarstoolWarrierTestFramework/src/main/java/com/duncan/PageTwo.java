@@ -5,16 +5,17 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class PageTwo {
+public class PageTwo extends AbstractPage {
 
-	public static String url = "http://localhost:54070/Alpha/PageTwo";
-
+	public static String url = "/Alpha/PageTwo";
+	public static String pageName = "Page Two";
+	
 	public static void goTo() {
-		Driver.instance.get(url);
+		Driver.instance.get(Domain.url + url);
 	}
 
 	public static Boolean isAt() {
-		if (Driver.instance.findElement(By.id("pageTitle")).getText().equals("Page Two")) {
+		if (Driver.instance.findElement(By.id("pageTitle")).getText().equals(pageName)) {
 			return true;
 		}
 		return false;

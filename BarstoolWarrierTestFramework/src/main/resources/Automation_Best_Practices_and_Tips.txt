@@ -1,0 +1,73 @@
+// BEST PRACTICES FROM THE PLURALSIGHT COURSE
+//		"Create an Automated Testing Framework With Selenium"
+
+// Enumerations
+//		Use for common values
+//		Use to prevent the test from needing to store variables
+
+// Nested Classes
+//		Use to write the test as a chain of methods
+
+// Possibly store the state of data in the automation framework
+
+// Wait Time
+// 		Make the wait time adjustable with methods in the automation framework
+// 		Disable wait for some tests
+// 		Add the wait for other tests
+// 		Adjust the wait as needed
+
+// Workflow Classes
+// 		When something uses multiple pages, use a Workflow Class
+// 		If applicable, add the ability for the Workflow Class to clean up the data it created
+
+// Default & Dummy Data
+// 		Do not waste time creating test data when it doesn't matter
+// 		Use default data as much as possible
+// 		Use dummy data as much as possible
+// 		Write an algorithm to generate dummy data
+
+// GoTo()
+// 		Remove GoTo() from the Cucumber tests
+// 		Place the GoTo() inside the methods of the page
+// 		If not on the page, navigate there and then do the thing
+// 		If already on the page, do the thing
+
+// Error vs Failure
+//		Error = Bug in the Automation Framework
+//		Failure = The test failed
+//		The report should display errors and failures clearly
+
+// Continuous Integration
+//		Run tests as part of a build
+//		Allow developers to run the tests locally
+//		Report the results
+
+// DSL (Domain Specific Language)
+//		DSLs allow non-technical people to create automated tests
+//		Few projects get here
+//		http://www.antlr.org/
+
+// Scaling Out
+//		What happens when tests take a long time?
+//			Run them in parallel
+//			Run them at different times
+//		Data Setup
+//			Dump data into a database and in a condition where data is ready to be tested
+//			Avoids having to make the automation framework create the data each time the tests are run
+
+// Sauce Labs
+//		Runs in the cloud
+//		Runs on a RemoteWebDriver
+
+// Agile and Automation
+//		Creating the automated tests is part of the sprint
+//		Passing automated tests is part of the "Done" criteria
+
+// Browser Versions
+//		Do not test on every browser
+//			Most of your tests are testing functionality
+//			Most of your tetss are not testing browser compatibility
+//		Have your smoke tests run on every browser
+//		Have your detailed tests run on one browser
+
+

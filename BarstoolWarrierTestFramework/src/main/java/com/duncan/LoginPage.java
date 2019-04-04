@@ -2,12 +2,20 @@ package com.duncan;
 
 import org.openqa.selenium.By;
 
-public class LoginPage {
+public class LoginPage extends AbstractPage {
 
-	public static String url = "http://localhost:54070/Login/Index";
+	public static String url = "/Login/Index";
+	public static String pageName = "Login Page";	
 
 	public static void goTo() {
-		Driver.instance.get(url);
+		Driver.instance.get(Domain.url + url);
+	}
+
+	public static Boolean isAt() {
+		if (Driver.instance.findElement(By.id("pageTitle")).getText().equals(pageName)) {
+			return true;
+		}
+		return false;
 	}
 
 	public static LoginCommand loginAs(String username) {

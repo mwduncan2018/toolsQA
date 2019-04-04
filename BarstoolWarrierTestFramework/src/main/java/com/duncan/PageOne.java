@@ -7,21 +7,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PageOne {
+public class PageOne extends AbstractPage {
 
-	public static String url = "http://localhost:54070/Alpha/PageOne";
+	public static String url = "/Alpha/PageOne";
+	public static String pageName = "Page One";
 
 	public static void goTo() {
-		Driver.instance.get(url);
+		Driver.instance.get(Domain.url + url);
 	}
 
 	public static Boolean isAt() {
-		if (Driver.instance.findElement(By.id("pageTitle")).getText().equals("Page One")) {
+		if (Driver.instance.findElement(By.id("pageTitle")).getText().equals(pageName)) {
 			return true;
 		}
 		return false;
 	}
-
+	
 	public static void clickButtonClear() {
 		Driver.instance.findElement(By.id("btnClear")).click();
 	}

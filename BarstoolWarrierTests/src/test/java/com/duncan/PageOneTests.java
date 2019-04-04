@@ -9,25 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PageOneTests {
-
-	@BeforeAll
-	public static void beforeAll() {
-	}
-
-	@AfterAll
-	public static void afterAll() {
-	}
-
-	@BeforeEach
-	public void beforeEach() {
-		Driver.initialize();
-	}
-
-	@AfterEach
-	public void afterEach() {
-		Driver.close();
-	}
+class PageOneTests extends AbstractTestClass {
 
 	@Test
 	public void verify_time_delayed_elements() {
