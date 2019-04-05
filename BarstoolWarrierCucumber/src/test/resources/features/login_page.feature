@@ -16,13 +16,36 @@ Feature: Login Page Feature
       | eangone  | Test1234 |
 
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
+  @RegressionTest
+  Scenario Outline: Invalid Username and Password Combination
+    Given we are at the login page
+    When we login with username <username> and password <password>
+    Then a validation message for an invalid username and password combination is displayed
 
     Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      | username | password |
+      | mduncan  | None1234 |
+      | abcxyz   | Test1234 |
+
+
+	@RegressionTest
+  Scenario: Username Is Required
+    Given we are at the login page
+    When we login with an empty username field 
+    Then a validation message is displayed that indicates username is a required field
+
+
+	@RegressionTest
+  Scenario: Password Is Required
+    Given we are at the login page
+    When we login with an empty password field 
+    Then a validation message is displayed that indicates password is a required field
+      
+      
+  @RegressionTest
+  Scenario: Username and Password Are Required
+    Given we are at the login page
+    When we login with an empty username field and an empty password field 
+    Then a validation message is displayed that indicates username is a required field
+    And a validation message is displayed that indicates password is a required field
+      
