@@ -1,4 +1,4 @@
-package cucumber.duncan;
+package scarlett.elipsis;
 
 import org.junit.runner.RunWith;
 
